@@ -1,0 +1,42 @@
+image: gradle:8.5-jdk21
+
+variables:
+  POSTGRES_DB: fastfood
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+
+services:
+  - postgres:15
+
+stages:
+  - build
+  - test
+  - sonar
+
+before_script:
+  - export SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/$POSTGRES_DB
+  - export SPRING_DATASOURCE_USERNAME=$POSTGRES_USER
+  - export SPRING_DATASOURCE_PASSWORD=$POSTGRES_PASSWORD
+  - chmod +x ./gradlew
+
+build:
+  stage: build
+  script:
+    - ./gradlew build
+  artifacts:
+    paths:
+      - build/libs/
+
+test:
+  stage: test
+  script:
+    - ./gradlew test
+
+sonarqube-check:
+  image: sonarsource/sonar-scanner-cli:latest
+  stage: sonar
+  script:
+    - sonar-scanner
+  only:
+    - main

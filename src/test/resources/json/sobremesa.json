@@ -1,0 +1,9 @@
+{
+  "name": "Sundae",
+  "category": "SOBREMESA",
+  "price": 8.50,
+  "description": "Sorvete de baunilha com cobertura",
+  "defaultIngredients": [],
+  "optionalIngredients": [],
+  "customizationOptions": []
+}

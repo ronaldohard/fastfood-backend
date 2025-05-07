@@ -1,0 +1,12 @@
+{
+  "name": "Coca-Cola",
+  "category": "BEBIDA",
+  "price": 6.00,
+  "description": "Lata 350ml",
+  "defaultIngredients": [],
+  "optionalIngredients": [],
+  "customizationOptions": [
+    "com gelo",
+    "sem gelo"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "X-Burger",
+  "category": "LANCHE",
+  "price": 18.90,
+  "description": "Hambúrguer tradicional com queijo",
+  "defaultIngredients": [
+    "pão",
+    "hambúrguer",
+    "queijo"
+  ],
+  "optionalIngredients": [
+    "bacon",
+    "alface",
+    "tomate"
+  ],
+  "customizationOptions": []
+}
