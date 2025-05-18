@@ -1,0 +1,12 @@
+{
+  "transaction_amount": 10.00,
+  "description": "Pedido FastFood #123",
+  "payment_method_id": "pix",
+  "payer": {
+    "email": "cliente@email.com",
+    "identification": {
+      "type": "CPF",
+      "number": "12345678900"
+    }
+  }
+}

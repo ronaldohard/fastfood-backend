@@ -1,0 +1,7 @@
+{
+  "id": 1234567890,
+  "status": "pending",
+  "payment_method_id": "pix",
+  "qr_code": "0002012644...",
+  "qr_code_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUg..."
+}

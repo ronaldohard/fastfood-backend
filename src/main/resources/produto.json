@@ -1,0 +1,34 @@
+{
+  "orderId": "20240710-000123",
+  "timestamp": "2025-07-10T11:45:00-03:00",
+  "customer": {
+    "isAnonymous": false,
+    "id": "user_789",
+    "name": "João Silva",
+    "contact": {
+      "email": "joao@email.com",
+      "phone": "11999998888"
+    }
+  },
+  "items": [
+    {
+      "id": 1,
+      "name": "X-Burger",
+      "category": null,
+      "price": 10.00,
+      "description": "BigMac ",
+      "defaultIngredients": {
+        "Hambuger",
+        "Pao X",
+        "picles",
+        "cebola roxa",
+        ""
+      },
+      "optionalIngredients": null,
+      "customizationOptions": null
+    },
+    },
+    {
+    }
+  ]
+}
