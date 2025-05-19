@@ -13,7 +13,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./resources/db/init.sql:/docker-entrypoint-initdb.d/hamburgueria-carga-inicial.sql
+      - ../sql/:/docker-entrypoint-initdb.d/
     networks:
       - fastfood-net
 
