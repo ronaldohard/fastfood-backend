@@ -1,7 +1,5 @@
 -- DROP SCHEMA public;
 
-CREATE SCHEMA public AUTHORIZATION pg_database_owner;
-
 COMMENT
 ON SCHEMA public IS 'standard public schema';
 
@@ -123,7 +121,6 @@ ALTER SEQUENCE public.produto_id_seq OWNER TO postgres;
 GRANT
 ALL
 ON SEQUENCE public.produto_id_seq TO postgres;
-
 -- DROP SEQUENCE public.produto_ingrediente_id_seq;
 
 CREATE SEQUENCE public.produto_ingrediente_id_seq

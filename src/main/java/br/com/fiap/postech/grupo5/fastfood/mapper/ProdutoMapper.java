@@ -3,6 +3,7 @@ package br.com.fiap.postech.grupo5.fastfood.mapper;
 import br.com.fiap.postech.grupo5.fastfood.dto.ProdutoDTO;
 import br.com.fiap.postech.grupo5.fastfood.model.Produto;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
