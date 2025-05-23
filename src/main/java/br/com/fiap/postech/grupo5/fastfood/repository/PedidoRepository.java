@@ -10,5 +10,4 @@ import java.util.Optional;
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
     Optional<Pedido> findByStatus(String status);
-
 }

@@ -1,17 +1,22 @@
 package br.com.fiap.postech.grupo5.fastfood.service;
 
+import br.com.fiap.postech.grupo5.fastfood.dto.MonitorDTO;
 import br.com.fiap.postech.grupo5.fastfood.dto.PedidoDTO;
 import br.com.fiap.postech.grupo5.fastfood.mapper.PedidoMapper;
 import br.com.fiap.postech.grupo5.fastfood.model.Pedido;
 import br.com.fiap.postech.grupo5.fastfood.repository.PedidoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class PedidoService {
 
     private final PedidoMapper pedidoMapper;
@@ -20,7 +25,7 @@ public class PedidoService {
     //private final QrCodeClient qrCodeClient;
 
     public void criarPedido(PedidoDTO request) {
-        Pedido pedido = pedidoMapper.toEntity(request);
+        Pedido pedido = pedidoMapper.toMap(request);
         pedido.setStatus("pending");
         pedido.setData(LocalDateTime.now());
         pedido.setValorTotal(pedido.calcularTotal());
@@ -34,10 +39,47 @@ public class PedidoService {
     }
 
     public PedidoDTO buscarPorStatus(String cpf) {
-        Pedido pedido = pedidoRepository.findByStatus(cpf)
-                .orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado"));
-        return pedidoMapper.toDto(pedido);
+        return pedidoRepository.findByStatus(cpf)
+                .map(pedidoMapper::toMap)
+                .orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado por status"));
     }
 
 
+    public PedidoDTO buscarPorId(Long id) {
+        return pedidoRepository.findById(id)
+                .map(pedidoMapper::toMap)
+                .orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado por id"));
+    }
+
+    public List<PedidoDTO> buscarTodos() {
+        return pedidoRepository.findAll(Sort.by(Sort.Direction.DESC, "id"))
+                .stream()
+                .map(pedidoMapper::toMap)
+                .toList()
+                ;
+    }
+
+    public List<MonitorDTO> buscarPedidosMonitor() {
+        return buscarTodos()
+                .stream()
+                .filter(p -> p.getStatus().equals("pending") || p.getStatus().equals("completed")) //todo - criar a query
+                .map(pedidoMapper::toMonitor)
+                .toList()
+                ;
+    }
+
+    public PedidoDTO alterarStatus(Long id, String status) {
+        log.info("Alterando status para: {}", status);
+        return pedidoRepository.findById(id)
+                .map(p -> {
+                    p.setStatus(status);
+                    return p;
+                })
+                .map(pedidoRepository::save)
+                .map(pedidoMapper::toMap)
+                .orElseThrow(() -> new EntityNotFoundException("Pedido nao encontrado."))
+                ;
+
+
+    }
 }
