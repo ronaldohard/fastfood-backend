@@ -1,7 +1,7 @@
 package br.com.fiap.postech.grupo5.fastfood.mapper;
 
-import br.com.fiap.postech.grupo5.fastfood.dto.ClienteDTO;
-import br.com.fiap.postech.grupo5.fastfood.model.Cliente;
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.client.Cliente;
+import br.com.fiap.postech.grupo5.fastfood.application.dto.ClienteDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
