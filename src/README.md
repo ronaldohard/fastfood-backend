@@ -1,4 +1,4 @@
-# 🍔 FastFood Hexagonal Java 21
+# 🍔 FastFood Hexagonal Java 22
 
 Projeto backend monolito com arquitetura hexagonal usando Java 22, Maven, Spring Boot, Swagger, Docker, Testcontainers
 e SonarQube.
