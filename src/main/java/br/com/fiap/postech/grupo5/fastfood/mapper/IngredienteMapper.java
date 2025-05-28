@@ -1,7 +1,8 @@
 package br.com.fiap.postech.grupo5.fastfood.mapper;
 
-import br.com.fiap.postech.grupo5.fastfood.dto.IngredienteDTO;
-import br.com.fiap.postech.grupo5.fastfood.model.Ingrediente;
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.ingredient.Ingrediente;
+import br.com.fiap.postech.grupo5.fastfood.application.dto.IngredienteDTO;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

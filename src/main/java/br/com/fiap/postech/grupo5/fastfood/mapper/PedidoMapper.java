@@ -1,12 +1,13 @@
 package br.com.fiap.postech.grupo5.fastfood.mapper;
 
-import br.com.fiap.postech.grupo5.fastfood.dto.CustomizacaoDTO;
-import br.com.fiap.postech.grupo5.fastfood.dto.ItemPedidoDTO;
-import br.com.fiap.postech.grupo5.fastfood.dto.MonitorDTO;
-import br.com.fiap.postech.grupo5.fastfood.dto.PedidoDTO;
-import br.com.fiap.postech.grupo5.fastfood.model.Customizacao;
-import br.com.fiap.postech.grupo5.fastfood.model.ItemPedido;
-import br.com.fiap.postech.grupo5.fastfood.model.Pedido;
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.order.Customizacao;
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.order.ItemPedido;
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.order.Pedido;
+import br.com.fiap.postech.grupo5.fastfood.application.dto.CustomizacaoDTO;
+import br.com.fiap.postech.grupo5.fastfood.application.dto.ItemPedidoDTO;
+import br.com.fiap.postech.grupo5.fastfood.application.dto.MonitorDTO;
+import br.com.fiap.postech.grupo5.fastfood.application.dto.PedidoDTO;
+
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
