@@ -15,7 +15,10 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {
+        PagamentoMapper.class,
+        ClienteMapper.class
+})
 public interface PedidoMapper {
 
     PedidoMapper INSTANCE = Mappers.getMapper(PedidoMapper.class);

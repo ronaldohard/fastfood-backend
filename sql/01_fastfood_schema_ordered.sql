@@ -267,13 +267,16 @@ ON TABLE public.tipo_produto TO postgres;
 CREATE TABLE public.pagamento
 (
     id                serial4        NOT NULL,
+    pedido_id int8 NOT NULL,
     tipo_pagamento_id int4           NOT NULL,
     status            varchar(20)    NOT NULL,
     valor_total       numeric(10, 2) NOT NULL,
     qr_code_url       text NULL,
     criado_em         timestamp DEFAULT now() NULL,
     CONSTRAINT pagamento_pkey PRIMARY KEY (id),
-    CONSTRAINT fk_pagamento_tipo FOREIGN KEY (tipo_pagamento_id) REFERENCES public.tipo_pagamento (id)
+    CONSTRAINT fk_pagamento_tipo FOREIGN KEY (tipo_pagamento_id) REFERENCES public.tipo_pagamento (id),
+    CONSTRAINT pagamento_unique UNIQUE (pedido_id)
+
 );
 
 -- Permissions

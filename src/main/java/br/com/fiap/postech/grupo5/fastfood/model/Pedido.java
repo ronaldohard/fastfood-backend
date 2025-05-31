@@ -19,12 +19,25 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedido_id_seq")
     @SequenceGenerator(name = "pedido_id_seq", sequenceName = "pedido_id_seq", allocationSize = 1)
     private Long id;
+
+    @Column(name = "cliente_id")
     private Long clienteId;
     private LocalDateTime data;
     private BigDecimal valorTotal;
 
     @NotEmpty
     private String status;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private Pagamento pagamento;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @JoinColumn(name = "cliente_id", insertable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Cliente cliente;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

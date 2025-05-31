@@ -4,6 +4,7 @@
 
 /build/
 
+target/
 .DS_Store
 
 # Ignore Gradle GUI config

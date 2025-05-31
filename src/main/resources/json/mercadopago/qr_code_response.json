@@ -1,0 +1,7 @@
+{
+  "id": "qr123abc",
+  "qr_data": "00020126580014BR.GOV.BCB.PIX0136d9fa33f0-0a4e-4a10-a10e-XXXXXXXXXXXX5204000053039865406100.005802BR5910FASTFOOD6009SAO PAULO62070503***6304B14F",
+  "in_store_order_id": "order123",
+  "external_reference": "pedido_42",
+  "status": "pending"
+}

@@ -1,20 +1,29 @@
 package br.com.fiap.postech.grupo5.fastfood.service;
 
 import br.com.fiap.postech.grupo5.fastfood.adapter.client.MercadoPagoClientAdapter;
-import br.com.fiap.postech.grupo5.fastfood.dto.MercadoPagoRequest;
-import br.com.fiap.postech.grupo5.fastfood.dto.MercadoPagoResponse;
-import br.com.fiap.postech.grupo5.fastfood.dto.PaymentDTO;
-import br.com.fiap.postech.grupo5.fastfood.dto.PedidoDTO;
+import br.com.fiap.postech.grupo5.fastfood.dto.*;
+import br.com.fiap.postech.grupo5.fastfood.model.Pagamento;
+import br.com.fiap.postech.grupo5.fastfood.model.Pedido;
+import br.com.fiap.postech.grupo5.fastfood.repository.PedidoRepository;
+import br.com.fiap.postech.grupo5.fastfood.repository.StatusPedido;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class PagamentoService {
 
     private final MercadoPagoClientAdapter mercadoPagoClientAdapter;
+    private final PedidoRepository pedidoRepository;
+    private final NotificarClienteService notificarClienteService;
 
-    public PaymentDTO processarPagamento(PedidoDTO pedido) {
+    private static MercadoPagoRequest getMercadoPagoRequest(PedidoDTO pedido) {
         MercadoPagoRequest req = new MercadoPagoRequest();
         req.setDescription("Pedido #" + pedido.getId());
         req.setTransaction_amount(pedido.getValorTotal());
@@ -29,6 +38,29 @@ public class PagamentoService {
         payer.setIdentification(id);
 
         req.setPayer(payer);
+        return req;
+    }
+
+    public QrCodeResponseDTO gerarQrCodeParaPedido(Long pedidoId) {
+        Pedido pedido = pedidoRepository.findById(pedidoId)
+                .orElseThrow(() -> new EntityNotFoundException("Pedido não encontrado"));
+
+        if (!StatusPedido.AGUARDANDO_PAGAMENTO.name().equals(pedido.getStatus())) {
+            throw new RuntimeException("Pedido não está apto para pagamento");
+        }
+
+        CriarPagamentoQrCodeDTO dto = new CriarPagamentoQrCodeDTO();
+        dto.setTransactionAmount(pedido.getValorTotal());
+        dto.setDescription("Pagamento pedido #" + pedido.getId());
+        dto.setExternalReference("pedido_" + pedido.getId());
+
+        var response = mercadoPagoClientAdapter.gerarQrCode(dto);
+
+        return response;
+    }
+
+    public MercadoPagoResponse processarPagamento(PedidoDTO pedido) {
+        MercadoPagoRequest req = getMercadoPagoRequest(pedido);
 
         MercadoPagoResponse response = mercadoPagoClientAdapter.criarPagamento(req);
 
@@ -36,8 +68,48 @@ public class PagamentoService {
         // pedido.pagamento -> qrCode -> (response.getQrCodeBase64());
 
         //todo - acertar retorno
-        return PaymentDTO.builder().build();
+        return response;
     }
 
+    public void pagamentoConfirmado(MercadoPagoResponse mercadoPagoResponse) {
 
+        //todo - seta o pagamento (confirmado) no pedido
+        log.info("Gravando o pagamento confirmado no pedido..");
+        Pedido pedido = pedidoRepository.findById(Long.valueOf(mercadoPagoResponse.getExternalReference()))
+                .orElseThrow(() -> new EntityNotFoundException(""));
+
+        Pagamento pagamento = new Pagamento();
+        pagamento.setData(LocalDateTime.now());
+        pagamento.setStatus("PAGO"); //todo - talvez nao precise
+        pagamento.setValorTotal(pedido.getValorTotal());//todo - talvez nao precise
+        pagamento.setQrCodeUrl(mercadoPagoResponse.getQrCode());
+
+        pedido.setPagamento(pagamento);
+
+        //todo - altera o status para EM_PREPARO
+        log.info("Enviando o pedido para cozinha (status: EM_PREPARO...");
+        pedido.setStatus("EM_PREPARO");
+
+        this.notificarCliente(pedido);
+
+        //todo - imprime comprovante
+        log.info("Imprimindo comprovante...");
+
+
+        //todo - Finaliza e inicia nova sessao
+        log.info("Sessao finalizada...");
+    }
+
+    private void notificarCliente(Pedido pedido) {
+        //todo - envia sms para cliente
+        log.info("Verificando se o cliente esta cadastrado...");
+
+        if (Objects.nonNull(pedido.getCliente())) {
+            notificarClienteService.enviarSMS(pedido.getId(), pedido.getCliente().getCel());
+            return;
+        }
+
+        log.info("Cliente nao cadastrado, visualizacao somente");
+
+    }
 }
