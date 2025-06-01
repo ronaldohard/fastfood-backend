@@ -1,19 +1,19 @@
-# 🍔 FastFood Hexagonal Java 21
+# 🍔 FastFood Hexagonal Java 22
 
-Projeto backend monolito com arquitetura hexagonal usando Java 21, Gradle, Spring Boot, Swagger, Docker, Testcontainers
+Projeto backend monolito com arquitetura hexagonal usando Java 22, Maven, Spring Boot, Swagger, Docker, Testcontainers
 e SonarQube.
 
 ## 🧪 Requisitos
 
 - Docker + Docker Compose
-- Java 21
-- Gradle
+- Java 22
+- Maven
 
 ## 🚀 Como Rodar
 
 ```bash
 # 1. Compile o projeto e gere o .jar
-./gradlew clean build
+mvn clean package
 
 # 2. Suba os containers (app, db, sonar)
 docker-compose up --build
@@ -27,4 +27,8 @@ docker-compose up --build
 
 ## 📦 Banco de dados
 
-O banco será criado automaticamente com os dados de `resources/db/init.sql` no container `fastfood-db`.
+O banco será criado automaticamente com os dados de `sql/init.sql` no container `fastfood-db`.
+
+## 📋 Documentação DDD
+
+https://miro.com/app/board/uXjVIDhyBL0=/?share_link_id=759980337877
