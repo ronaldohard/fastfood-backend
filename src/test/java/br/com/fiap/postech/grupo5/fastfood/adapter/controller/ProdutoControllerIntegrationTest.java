@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchIllegalArgumentException;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -114,12 +115,10 @@ class ProdutoControllerIntegrationTest {
                 .getResponse()
                 .getContentAsString();
 
-       Long id = Long.valueOf(1);
-
         ProdutoDTO criado = objectMapper.readValue(response, ProdutoDTO.class);
         String nome = criado.getNome();
         assertThat(nome).isNotNull();
-
+        Long id = criado.getId();
         mockMvc.perform(get("/api/produtos/{id}", id)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -135,7 +134,7 @@ class ProdutoControllerIntegrationTest {
         dto.setNome("Suco Natural");
         dto.setPreco(new BigDecimal("8.50"));
 
-        mockMvc.perform(post("/api/produtos")
+        String response = mockMvc.perform(post("/api/produtos")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(dto)))
                 .andExpect(status().isCreated())
@@ -143,7 +142,8 @@ class ProdutoControllerIntegrationTest {
                 .getResponse()
                 .getContentAsString();
 
-        Long id = Long.valueOf(2);
+        ProdutoDTO criado = objectMapper.readValue(response, ProdutoDTO.class);
+        Long id = criado.getId();
 
         ProdutoDTO dtoAlterado = new ProdutoDTO();
         dtoAlterado.setNome("Suco Natural de Laranja");
