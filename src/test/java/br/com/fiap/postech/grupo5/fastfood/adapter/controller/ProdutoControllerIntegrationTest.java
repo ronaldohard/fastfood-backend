@@ -1,10 +1,9 @@
 package br.com.fiap.postech.grupo5.fastfood.adapter.controller;
 
-import br.com.fiap.postech.grupo5.fastfood.dto.ProdutoDTO;
-import br.com.fiap.postech.grupo5.fastfood.repository.ProdutoRepository;
-import br.com.fiap.postech.grupo5.fastfood.service.ProdutoService;
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.repositories.ProdutoRepository;
+import br.com.fiap.postech.grupo5.fastfood.application.dto.ProdutoDTO;
+import br.com.fiap.postech.grupo5.fastfood.application.service.ProdutoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
