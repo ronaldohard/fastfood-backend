@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @Builder
 @FieldNameConstants
 public class ProdutoDTO {
+    private Long id;
     private String nome;
     private Long tipoProdutoId;
     private BigDecimal preco;
