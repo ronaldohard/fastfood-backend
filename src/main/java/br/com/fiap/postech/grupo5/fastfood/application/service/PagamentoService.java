@@ -3,7 +3,7 @@ package br.com.fiap.postech.grupo5.fastfood.application.service;
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.client.MercadoPagoClientAdapter;
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.order.Pedido;
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.pagamento.Pagamento;
-import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.enums.status.StatusPedido;
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.enums.Status;
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.repositories.PedidoRepository;
 import br.com.fiap.postech.grupo5.fastfood.application.dto.*;
 import jakarta.persistence.EntityNotFoundException;
@@ -45,7 +45,7 @@ public class PagamentoService {
         Pedido pedido = pedidoRepository.findById(pedidoId)
                 .orElseThrow(() -> new EntityNotFoundException("Pedido não encontrado"));
 
-        if (!StatusPedido.AGUARDANDO_PAGAMENTO.name().equals(pedido.getStatus())) {
+        if (!Status.AGUARDANDO_PAGAMENTO.name().equals(pedido.getStatus())) {
             throw new RuntimeException("Pedido não está apto para pagamento");
         }
 

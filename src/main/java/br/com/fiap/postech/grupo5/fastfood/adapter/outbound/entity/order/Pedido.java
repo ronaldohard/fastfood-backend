@@ -27,7 +27,7 @@ public class Pedido {
     private LocalDateTime data;
     private BigDecimal valorTotal;
 
-    @NotEmpty
+    @NotEmpty //todo - enum
     private String status;
 
     @ToString.Exclude
