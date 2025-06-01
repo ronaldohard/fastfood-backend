@@ -13,5 +13,5 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
     Optional<Pedido> findByStatus(String status);
 
-    List<Pedido> findAllByStatusIn(Collection<String> statuses);
+    List<Pedido> findAllByStatusInOrderByDataAsc(Collection<String> statuses);
 }

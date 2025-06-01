@@ -2,6 +2,7 @@ package br.com.fiap.postech.grupo5.fastfood.application.service;
 
 import br.com.fiap.postech.grupo5.fastfood.adapter.inbound.web.mappers.PedidoMapper;
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.order.Pedido;
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.enums.Status;
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.repositories.PedidoRepository;
 import br.com.fiap.postech.grupo5.fastfood.application.dto.MonitorDTO;
 import br.com.fiap.postech.grupo5.fastfood.application.dto.PedidoDTO;
@@ -61,7 +62,7 @@ public class PedidoService {
 
     public List<MonitorDTO> buscarPedidosMonitor() {
         return pedidoRepository
-                .findAllByStatusIn(List.of("IN_PREPARATION", "READY"))
+                .findAllByStatusInOrderByDataAsc(List.of(Status.EM_PREPARACAO.name(), Status.PRONTO.name()))
                 .stream()
                 .map(pedidoMapper::toMonitor)
                 .toList();
