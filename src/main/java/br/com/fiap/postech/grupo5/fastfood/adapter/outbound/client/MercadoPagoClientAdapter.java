@@ -1,9 +1,9 @@
-package br.com.fiap.postech.grupo5.fastfood.adapter.client;
+package br.com.fiap.postech.grupo5.fastfood.adapter.outbound.client;
 
-import br.com.fiap.postech.grupo5.fastfood.dto.CriarPagamentoQrCodeDTO;
-import br.com.fiap.postech.grupo5.fastfood.dto.MercadoPagoRequest;
-import br.com.fiap.postech.grupo5.fastfood.dto.MercadoPagoResponse;
-import br.com.fiap.postech.grupo5.fastfood.dto.QrCodeResponseDTO;
+import br.com.fiap.postech.grupo5.fastfood.application.dto.CriarPagamentoQrCodeDTO;
+import br.com.fiap.postech.grupo5.fastfood.application.dto.MercadoPagoRequest;
+import br.com.fiap.postech.grupo5.fastfood.application.dto.MercadoPagoResponse;
+import br.com.fiap.postech.grupo5.fastfood.application.dto.QrCodeResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;

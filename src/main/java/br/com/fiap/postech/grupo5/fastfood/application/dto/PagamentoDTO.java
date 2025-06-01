@@ -1,4 +1,4 @@
-package br.com.fiap.postech.grupo5.fastfood.dto;
+package br.com.fiap.postech.grupo5.fastfood.application.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

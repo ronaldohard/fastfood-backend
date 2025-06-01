@@ -1,10 +1,10 @@
 package br.com.fiap.postech.grupo5.fastfood.application.service;
 
+import br.com.fiap.postech.grupo5.fastfood.adapter.inbound.web.mappers.PedidoMapper;
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.order.Pedido;
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.repositories.PedidoRepository;
 import br.com.fiap.postech.grupo5.fastfood.application.dto.MonitorDTO;
 import br.com.fiap.postech.grupo5.fastfood.application.dto.PedidoDTO;
-import br.com.fiap.postech.grupo5.fastfood.mapper.PedidoMapper;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

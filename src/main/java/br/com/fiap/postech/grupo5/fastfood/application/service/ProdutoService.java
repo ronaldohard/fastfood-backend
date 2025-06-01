@@ -1,9 +1,9 @@
 package br.com.fiap.postech.grupo5.fastfood.application.service;
 
+import br.com.fiap.postech.grupo5.fastfood.adapter.inbound.web.mappers.ProdutoMapper;
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.product.Produto;
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.repositories.ProdutoRepository;
 import br.com.fiap.postech.grupo5.fastfood.application.dto.ProdutoDTO;
-import br.com.fiap.postech.grupo5.fastfood.mapper.ProdutoMapper;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

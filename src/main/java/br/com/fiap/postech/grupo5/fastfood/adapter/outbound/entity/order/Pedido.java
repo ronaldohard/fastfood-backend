@@ -1,5 +1,7 @@
 package br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.order;
 
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.client.Cliente;
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.pagamento.Pagamento;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;

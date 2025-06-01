@@ -1,5 +1,6 @@
-package br.com.fiap.postech.grupo5.fastfood.domain.payment;
+package br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.pagamento;
 
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.order.Pedido;
 import jakarta.persistence.*;
 import lombok.*;
 

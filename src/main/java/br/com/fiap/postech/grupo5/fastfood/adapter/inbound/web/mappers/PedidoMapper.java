@@ -1,4 +1,4 @@
-package br.com.fiap.postech.grupo5.fastfood.mapper;
+package br.com.fiap.postech.grupo5.fastfood.adapter.inbound.web.mappers;
 
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.order.Customizacao;
 import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.entity.order.ItemPedido;

@@ -1,4 +1,4 @@
-package br.com.fiap.postech.grupo5.fastfood.dto;
+package br.com.fiap.postech.grupo5.fastfood.application.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

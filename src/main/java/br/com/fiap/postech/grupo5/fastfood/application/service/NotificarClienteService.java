@@ -1,4 +1,4 @@
-package br.com.fiap.postech.grupo5.fastfood.service;
+package br.com.fiap.postech.grupo5.fastfood.application.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

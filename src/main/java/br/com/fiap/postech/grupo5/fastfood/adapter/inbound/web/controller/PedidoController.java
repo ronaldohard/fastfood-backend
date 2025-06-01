@@ -1,4 +1,4 @@
-package br.com.fiap.postech.grupo5.fastfood.adapter.inbound.controller;
+package br.com.fiap.postech.grupo5.fastfood.adapter.inbound.web.controller;
 
 import br.com.fiap.postech.grupo5.fastfood.application.dto.MonitorDTO;
 import br.com.fiap.postech.grupo5.fastfood.application.dto.PedidoDTO;

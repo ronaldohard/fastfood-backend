@@ -1,4 +1,4 @@
-package br.com.fiap.postech.grupo5.fastfood.handler;
+package br.com.fiap.postech.grupo5.fastfood.infrastructure.handler;
 
 import br.com.fiap.postech.grupo5.fastfood.dto.ApiError;
 import jakarta.servlet.http.HttpServletRequest;

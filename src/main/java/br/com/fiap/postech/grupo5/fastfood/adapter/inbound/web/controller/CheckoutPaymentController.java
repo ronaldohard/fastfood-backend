@@ -1,7 +1,7 @@
-package br.com.fiap.postech.grupo5.fastfood.adapter.controller;
+package br.com.fiap.postech.grupo5.fastfood.adapter.inbound.web.controller;
 
-import br.com.fiap.postech.grupo5.fastfood.adapter.client.MercadoPagoClientAdapter;
-import br.com.fiap.postech.grupo5.fastfood.service.PagamentoService;
+import br.com.fiap.postech.grupo5.fastfood.adapter.outbound.client.MercadoPagoClientAdapter;
+import br.com.fiap.postech.grupo5.fastfood.application.service.PagamentoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
