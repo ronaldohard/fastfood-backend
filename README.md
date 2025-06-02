@@ -20,6 +20,12 @@ Sistema acadêmico de pedidos para lanchonete via totem.
 
 ---
 
+### 📚 DDD
+
+https://miro.com/app/board/uXjVIDhyBL0=/?share_link_id=759980337877
+
+---
+
 ### 📦 Requisitos
 
 - [Docker](https://www.docker.com/)
@@ -133,6 +139,12 @@ Incluímos um arquivo `postman/fastfood-api.postman_collection.json`.
 - Painel administrativo para pedidos
 - Notificações em tempo real via WebSocket
 
-https://miro.com/app/board/uXjVIDhyBL0=/?share_link_id=759980337877
+### 👥 Participantes do Grupo
 
-### ✅ Futuras melhorias (opcional)
+| 👤 Nome                         | 🎓 RM  | 💬 Discord         | 📧 Email                      |
+|---------------------------------|--------|--------------------|-------------------------------|
+| Gabriel Giangiulio Cravo Zamana | 364225 | gabrielzamana      | gabrielgiangiulio@outlook.com |
+| Milenna Cristina Nogueira Costa | 363739 | mih_cnc00          | milennacosta16@outlook.com    |
+| Raquel Aparecida Teixeira       | 363656 | raquelat           | raquelteixeira507@gmail.com   |
+| Ronaldo Ferreira Prates         | 363353 | twitch.tv/hard_aoe | ronaldohard@gmail.com         |
+| Samuel Videira dos Santos       | 363405 | samuel.videira     | samuel.videira@gmail.com      |
