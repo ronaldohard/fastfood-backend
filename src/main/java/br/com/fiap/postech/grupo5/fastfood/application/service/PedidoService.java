@@ -27,7 +27,7 @@ public class PedidoService {
 
     public void criarPedido(PedidoDTO request) {
         Pedido pedido = pedidoMapper.toMap(request);
-        pedido.setStatus("RECEIVED");
+        pedido.setStatus("RECEBIDO");
         pedido.setData(LocalDateTime.now());
         pedido.setValorTotal(pedido.calcularTotal());
         // String qrCodeUrl = qrCodeClient.gerarQrCode(pedido);
