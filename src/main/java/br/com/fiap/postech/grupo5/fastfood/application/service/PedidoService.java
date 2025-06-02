@@ -23,23 +23,22 @@ public class PedidoService {
     private final PedidoMapper pedidoMapper;
     private final PedidoRepository pedidoRepository;
     private final PagamentoService pagamentoService;
-    //private final QrCodeClient qrCodeClient;
 
     public void criarPedido(PedidoDTO request) {
+        log.info("Criando pedido...");
         Pedido pedido = pedidoMapper.toMap(request);
-        pedido.setStatus("RECEBIDO");
+        pedido.setStatus(Status.AGUARDANDO_PAGAMENTO.name());
         pedido.setData(LocalDateTime.now());
         pedido.setValorTotal(pedido.calcularTotal());
-        // String qrCodeUrl = qrCodeClient.gerarQrCode(pedido);
-        // pedido.setQrCodeUrl(qrCodeUrl);
 
         pagamentoService.processarPagamento(request);
 
         Pedido p = pedidoRepository.save(pedido);
-        System.out.println(p);
+        log.info("Pedido criado... {}", p.getId());
     }
 
     public PedidoDTO buscarPorStatus(String cpf) {
+        log.info("Buscar por ");
         return pedidoRepository.findByStatus(cpf)
                 .map(pedidoMapper::toMap)
                 .orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado por status"));
