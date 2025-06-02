@@ -1,527 +1,901 @@
 {
-  "info": {
-    "_postman_id": "553917b8-1e7b-42c3-9e7f-376c3b629bef",
-    "name": "SOAT11 - FastFood (Grupo 5)",
-    "description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "5516685"
-  },
-  "item": [
-    {
-      "name": "Cliente",
-      "item": [
-        {
-          "name": "Inserir cliente",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"nome\": \"Isabella\",\n    \"cpf\": \"22233344455\",\n    \"cel\": \"11912345670\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/clientes",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "clientes"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Listar clientes",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/clientes",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "clientes"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Cliente por CPF",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/clientes/cpf/22233344455",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "clientes",
-                "cpf",
-                "22233344455"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Cliente por CPF (not found)",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/clientes/cpf/999999999",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "clientes",
-                "cpf",
-                "999999999"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Produto",
-      "item": [
-        {
-          "name": "Inserir produto",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": " {\n    \"nome\": \"H2O Limoneto\",\n    \"tipoProdutoId\": 4,\n    \"preco\": 5.50\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/produtos",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "produtos"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Alterar produto",
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": " {\n    \"nome\": \"H2O Normal\",\n    \"tipoProdutoId\": 4,\n    \"preco\": 6.50\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/produtos/12",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "produtos",
-                "12"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Listar produtos",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/produtos",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "produtos"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Listar produtos por ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/produtos/12",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "produtos",
-                "12"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Buscar por Categoria",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/produtos/categoria/4",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "produtos",
-                "categoria",
-                "4"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Deletar produto",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/produtos/12",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "produtos",
-                "12"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Fake Checkout (Pagamento)",
-      "item": [
-        {
-          "name": "Gerar QRCODE",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/pagamentos/qrcode?pedidoId=1",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pagamentos",
-                "qrcode"
-              ],
-              "query": [
-                {
-                  "key": "pedidoId",
-                  "value": "1"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Pagamento Confirmado",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"id\": \"d4f06abf-cd9a-4650-ad12-07ae98723f96\",\n    \"qr_data\": \"https://qr.fake/abc123\",\n    \"external_reference\": \"1\",\n    \"status\": \"AGUARDANDO_PAGAMENTO\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/pagamentos/confirmado",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pagamentos",
-                "confirmado"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Pedido",
-      "item": [
-        {
-          "name": "Novo Pedido",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Successful POST request\", function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  ""
-                ],
-                "type": "text/javascript",
-                "packages": {}
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"clienteId\": 1,\n  \"produtos\": [\n    {\n      \"produtoId\": 1,\n      \"quantidade\": 2,\n      \"customizacoes\": [\n        {\n          \"ingredienteId\": 4,\n          \"tipo\": \"addition\"\n        },\n        {\n          \"ingredienteId\": 1,\n          \"tipo\": \"removal\"\n        }\n      ]\n    },\n    {\n      \"produtoId\": 2,\n      \"quantidade\": 1,\n      \"customizacoes\": [\n        {\n          \"ingredienteId\": 5,\n          \"tipo\": \"addition\"\n        },\n        {\n          \"ingredienteId\": 2,\n          \"tipo\": \"removal\"\n        }\n      ]\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/pedidos",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pedidos"
-              ]
-            },
-            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
-          },
-          "response": []
-        },
-        {
-          "name": "Listar pedido por ID",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});"
-                ],
-                "type": "text/javascript",
-                "packages": {}
-              }
-            }
-          ],
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/pedidos",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pedidos"
-              ]
-            },
-            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
-          },
-          "response": []
-        },
-        {
-          "name": "Listar pedidos",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});"
-                ],
-                "type": "text/javascript",
-                "packages": {}
-              }
-            }
-          ],
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/pedidos",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pedidos"
-              ]
-            },
-            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
-          },
-          "response": []
-        },
-        {
-          "name": "Acompanhamento",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});"
-                ],
-                "type": "text/javascript",
-                "packages": {}
-              }
-            }
-          ],
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/pedidos/monitor",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pedidos",
-                "monitor"
-              ]
-            },
-            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
-          },
-          "response": []
-        },
-        {
-          "name": "Alterar status do pedido",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});"
-                ],
-                "type": "text/javascript",
-                "packages": {}
-              }
-            }
-          ],
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"status\" : \"FINALIZADO\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/pedidos/1/status",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pedidos",
-                "1",
-                "status"
-              ]
-            },
-            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Inserir produto Copy",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": " {\n    \"nome\": \"H2O Normal\",\n    \"tipoProdutoId\": 4,\n    \"preco\": 6.50\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{base_url}}/produtos/12",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "produtos",
-            "12"
-          ]
-        }
-      },
-      "response": []
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    }
-  ],
-  "variable": [
-    {
-      "key": "id",
-      "value": "1"
-    },
-    {
-      "key": "base_url",
-      "value": "http://localhost:8080/api"
-    }
-  ]
+	"info": {
+		"_postman_id": "577bbc44-b2be-49d2-be90-fe22644646cb",
+		"name": "SOAT11 - FastFood (Grupo 5)",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17465177"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Inserir cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Isabella\",\n    \"cpf\": \"22233344455\",\n    \"cel\": \"11912345670\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/clientes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clientes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente por CPF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clientes/cpf/22233344455",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clientes",
+								"cpf",
+								"22233344455"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente por CPF (not found)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clientes/cpf/999999999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clientes",
+								"cpf",
+								"999999999"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Inserir produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"nome\": \"H2O Limoneto\",\n    \"tipoProdutoId\": 4,\n    \"preco\": 5.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/produtos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar produto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"nome\": \"H2O Normal\",\n    \"tipoProdutoId\": 4,\n    \"preco\": 6.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/produtos/12",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar produtos por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/produtos/12",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por Categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/produtos/categoria/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos",
+								"categoria",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/produtos/12",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/produtos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fake Checkout (Pagamento)",
+			"item": [
+				{
+					"name": "Gerar QRCODE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pagamentos/qrcode?pedidoId=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pagamentos",
+								"qrcode"
+							],
+							"query": [
+								{
+									"key": "pedidoId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagamento Confirmado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"d4f06abf-cd9a-4650-ad12-07ae98723f96\",\n    \"qr_data\": \"https://qr.fake/abc123\",\n    \"external_reference\": \"1\",\n    \"status\": \"AGUARDANDO_PAGAMENTO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pagamentos/confirmado",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pagamentos",
+								"confirmado"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "Novo Pedido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clienteId\": 1,\n  \"produtos\": [\n    {\n      \"produtoId\": 1,\n      \"quantidade\": 2,\n      \"customizacoes\": [\n        {\n          \"ingredienteId\": 4,\n          \"tipo\": \"addition\"\n        },\n        {\n          \"ingredienteId\": 1,\n          \"tipo\": \"removal\"\n        }\n      ]\n    },\n    {\n      \"produtoId\": 2,\n      \"quantidade\": 1,\n      \"customizacoes\": [\n        {\n          \"ingredienteId\": 5,\n          \"tipo\": \"addition\"\n        },\n        {\n          \"ingredienteId\": 2,\n          \"tipo\": \"removal\"\n        }\n      ]\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pedidos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pedidos"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar pedido por ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pedidos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pedidos"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar pedidos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pedidos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pedidos"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Acompanhamento",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pedidos/monitor",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pedidos",
+								"monitor"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar status do pedido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\" : \"FINALIZADO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pedidos/1/status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pedidos",
+								"1",
+								"status"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fluxo",
+			"item": [
+				{
+					"name": "1 - Listar Clientes existentes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clientes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Inserir um novo cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"nome\": \"Isabella\",\n    \"cpf\": \"22233344455\",\n    \"cel\": \"11912345670\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/clientes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Listar o cliente novo por cpf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clientes/cpf/{{cpfIsabella}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clientes",
+								"cpf",
+								"{{cpfIsabella}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Inserir um novo produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"nome\": \"H2O Limoneto\",\n    \"tipoProdutoId\": 4,\n    \"preco\": 5.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/produtos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 - Listar produtos existentes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/produtos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6 - Inserir produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"nome\": \"H2O Limoneto\",\n    \"tipoProdutoId\": 4,\n    \"preco\": 5.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/produtos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7 - Alterar produto criado",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"nome\": \"H2O Normal\",\n    \"tipoProdutoId\": 4,\n    \"preco\": 6.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/produtos/{{idProduto}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos",
+								"{{idProduto}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8 - Buscar categoria do produto criado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/produtos/categoria/{{idCategoria}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos",
+								"categoria",
+								"{{idCategoria}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9 - Deletar novo produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/produtos/{{idProduto}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos",
+								"{{idProduto}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10 - Tentar listar produto deletado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/produtos/{{idProduto}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"produtos",
+								"{{idProduto}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11 - Criar pedido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clienteId\": 2,\n  \"produtos\": [\n    {\n      \"produtoId\": 1,\n      \"quantidade\": 2,\n      \"customizacoes\": [\n        {\n          \"ingredienteId\": 4,\n          \"tipo\": \"addition\"\n        },\n        {\n          \"ingredienteId\": 1,\n          \"tipo\": \"removal\"\n        }\n      ]\n    },\n    {\n      \"produtoId\": 2,\n      \"quantidade\": 1,\n      \"customizacoes\": [\n        {\n          \"ingredienteId\": 5,\n          \"tipo\": \"addition\"\n        },\n        {\n          \"ingredienteId\": 2,\n          \"tipo\": \"removal\"\n        }\n      ]\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pedidos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pedidos"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "12 - Buscar pedido criado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pedidos/{{idPedido}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pedidos",
+								"{{idPedido}}"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "13 - Gerar QrCode pagamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pagamentos/qrcode?pedidoId={{idPedido}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pagamentos",
+								"qrcode"
+							],
+							"query": [
+								{
+									"key": "pedidoId",
+									"value": "{{idPedido}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14 - Confirmar pagamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"d4f06abf-cd9a-4650-ad12-07ae98723f96\",\n    \"qr_data\": \"https://qr.fake/abc123\",\n    \"external_reference\": \"2\",\n    \"status\": \"AGUARDANDO_PAGAMENTO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pagamentos/confirmado",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pagamentos",
+								"confirmado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "15 - Acompanhar pedido no monitor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pedidos/monitor",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pedidos",
+								"monitor"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api"
+		},
+		{
+			"key": "cpfIsabella",
+			"value": "22233344455",
+			"type": "string"
+		},
+		{
+			"key": "idProduto",
+			"value": "9",
+			"type": "string"
+		},
+		{
+			"key": "idCategoria",
+			"value": "4",
+			"type": "string"
+		},
+		{
+			"key": "idPedido",
+			"value": "2",
+			"type": "string"
+		}
+	]
 }
