@@ -12,10 +12,11 @@ e SonarQube.
 ## 🚀 Como Rodar
 
 ```bash
-# 1. Compile o projeto e gere o .jar
-mvn clean package
-
-# 2. Suba os containers (app, db, sonar)
+# 1. Clone o projeto
+https://github.com/ronaldohard/fastfood-backend.git
+# 2. Entre na pasta docker
+cd docker
+# 3. Gere as imagens e suba o container com as instancias de db, app e sonar 
 docker-compose up --build
 ```
 
