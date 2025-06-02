@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/pagamentos")
 @RequiredArgsConstructor
-@Tag(name = "2 - Pagamento", description = "Operações de Pagamento já Confirmado para Pedido")
+@Tag(name = "Pagamento", description = "Operações de Pagamento já Confirmado para Pedido")
 public class PagamentotController {
 
     private final PagamentoService service;

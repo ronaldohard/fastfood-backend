@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   db:
-    image: postgres:15
+    image: fastfood-db:15
     container_name: fastfood-db
     restart: always
     environment:
@@ -13,15 +13,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ../sql/:/docker-entrypoint-initdb.d/
-    networks:
-      - fastfood-net
-
-  sonar:
-    image: sonarqube:community
-    container_name: sonar
-    ports:
-      - "9000:9000"
+      - ./resources/db/init/:/docker-entrypoint-initdb.d/
     networks:
       - fastfood-net
 
@@ -29,6 +21,7 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile
+    image: fastfood-app:latest
     container_name: fastfood-app
     depends_on:
       - db

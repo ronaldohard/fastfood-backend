@@ -3,6 +3,7 @@ package br.com.fiap.postech.grupo5.fastfood.adapter.inbound.web.controller;
 import br.com.fiap.postech.grupo5.fastfood.application.dto.TipoProdutoDTO;
 import br.com.fiap.postech.grupo5.fastfood.application.service.TipoProdutoService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/produtos/tipo")
 @RequiredArgsConstructor
+@Tag(name = "Tipo de Produto", description = "Operações relacionadas ao tipode de produto (categoria)")
+
 public class TipoProdutoController {
 
     private final TipoProdutoService service;

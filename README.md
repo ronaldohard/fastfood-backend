@@ -1,35 +1,138 @@
-# 🍔 FastFood Hexagonal Java 22
+# 🍔 FastFood - Totem de Pedidos
 
-Projeto backend monolito com arquitetura hexagonal usando Java 22, Maven, Spring Boot, Swagger, Docker, Testcontainers
-e SonarQube.
+Sistema acadêmico de pedidos para lanchonete via totem.
+---
 
-## 🧪 Requisitos
+### 👨‍💻 Tecnologias utilizadas
 
-- Docker + Docker Compose
 - Java 22
-- Maven
+- Maven (v3.9.9)
+- Spring Boot 3 (v3.2.4)
+- Spring Data
+- Spring WebFlux (restclient)
+- PostgreSQL (v15)
+- Docker & Docker Compose
+- MapStruct (v1.6.3)
+- Lombok (v1.18.30)
+- Mockito (v5.10.0)
+- TestContainer (v1.19.1)
+- Swagger (springdoc-openapi v2.1.0)
+
+---
+
+### 📦 Requisitos
+
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- (opcional sem docker) [Java 22+](https://openjdk.org/projects/jdk/22/) e [Maven](https://maven.apache.org/)
+
+---
 
 ## 🚀 Como Rodar
 
 ```bash
 # 1. Clone o projeto
 https://github.com/ronaldohard/fastfood-backend.git
+
 # 2. Entre na pasta docker
 cd docker
+
 # 3. Gere as imagens e suba o container com as instancias de db, app e sonar 
 docker-compose up --build
 ```
 
-## 🔗 Endpoints úteis
+## 🔗 Endpoints publicados
 
-- API Swagger: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
-- SonarQube: [http://localhost:9000](http://localhost:9000)
-- PostgreSQL: localhost:5432 (user: postgres / senha: postgres)
+- API Swagger: [http://localhost:8080/swagger](http://localhost:8080/swagger)
 
-## 📦 Banco de dados
+### 🛠️ Configurações da aplicação (Banco de Dados)
 
-O banco será criado automaticamente com os dados de `sql/init.sql` no container `fastfood-db`.
+As propriedades estão configuradas no `application.yml`:
 
-## 📋 Documentação DDD
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fastfood
+    username: postgres
+    password: postgres
+```
+
+- **Host:** `localhost`
+- **Porta:** `5432`
+- **Usuário:** `postgres`
+- **Senha:** `postgres`
+
+Os scripts SQL são carregados automaticamente na inicialização (pastas `docker/resources/db/init/01_schema.sql`
+e `02_data.sql`).
+
+---
+
+#### 📬 Coleção Postman (opcional)
+
+Incluímos um arquivo `postman/fastfood-api.postman_collection.json`.
+
+- Importe no [Postman](https://www.postman.com/)
+- Teste endpoints de:
+  - Criação de pedido
+  - Simulação de pagamento (QR Code)
+  - Listagem de produtos
+
+---
+
+### 🗏️ Fluxo principal (Totem de Pedido)
+
+1. Cliente escolhe itens por categoria (hambúrguer, acompanhamento, bebida, sobremesa)
+2. Visualiza resumo
+3. Gera QR Code para pagamento
+4. Após confirmação, pedido é finalizado
+
+---
+
+### 📁 Estrutura - Arquitetura Hexagonal
+
+```
+├── backend/                         # Aplicação Spring Boot
+│   └── src/main/java/
+│       └── br/com/fiap/postech/grupo5/fastfood/
+│           ├── adapter/
+│           │   ├── inbound/web/
+│           │   │   ├── controller/
+│           │   │   └── mappers/
+│           │   └── outbound/
+│           │       ├── client/
+│           │       ├── entity/
+│           │       │   ├── client/
+│           │       │   ├── ingredient/
+│           │       │   ├── order/
+│           │       │   ├── pagamento/
+│           │       │   ├── product/
+│           │       │   └── enums/
+│           │       └── repositories/
+│           ├── application/
+│           │   ├── dto/
+│           │   └── service/
+│           └── infrastructure/
+│               ├── config/
+│               └── handler/
+│           └── FastFoodApplication.java
+│   └── resources/
+│       ├── application.yml
+│       └── json.mercadopago/
+├── docker/
+│   ├── docker-compose.yml
+│   ├── Dockerfile
+│   └── resources/db/init/          # Scripts SQL
+│       ├── 01_schema.sql
+│       └── 02_data.sql
+└── README.md
+```
+
+### ✅ Futuras melhorias (opcional)
+
+- Integração real com Mercado Pago
+- Painel administrativo para pedidos
+- Notificações em tempo real via WebSocket
 
 https://miro.com/app/board/uXjVIDhyBL0=/?share_link_id=759980337877
+
+### ✅ Futuras melhorias (opcional)
