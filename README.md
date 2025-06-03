@@ -41,7 +41,7 @@ https://miro.com/app/board/uXjVIDhyBL0=/?share_link_id=759980337877
 git clone https://github.com/ronaldohard/fastfood-backend.git
 
 # 2. Entre na pasta docker
-cd docker
+cd fastfood-backend/docker
 
 # 3. Gere as imagens e suba o container com as instancias de db, app e sonar 
 docker-compose up --build
