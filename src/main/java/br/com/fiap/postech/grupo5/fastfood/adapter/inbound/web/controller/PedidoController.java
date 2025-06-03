@@ -22,7 +22,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/pedidos")
 @RequiredArgsConstructor
-@Tag(name = "1 - Pedido", description = "Operações relacionadas a pedidos")
+@Tag(name = "Pedido", description = "Operações relacionadas a pedidos")
 public class PedidoController {
 
     private final PedidoService service;
