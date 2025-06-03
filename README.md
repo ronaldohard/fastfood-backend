@@ -75,13 +75,16 @@ e `02_data.sql`).
 
 #### 📬 Coleção Postman (opcional)
 
-Incluímos um arquivo `postman/fastfood-api.postman_collection.json`.
+Incluímos um arquivo `/postman/SOAT11 - FastFood (Grupo 5).postman_collection.json`.
 
 - Importe no [Postman](https://www.postman.com/)
-- Teste endpoints de:
-  - Criação de pedido
-  - Simulação de pagamento (QR Code)
-  - Listagem de produtos
+- Teste endpoints do FLUXO:
+  - Criação de Cliente
+  - Buscar cliente por CPF
+  - CRUD de Produtos
+  - Buscar Produtos por Categoria
+  - Fake Checkout QRCODE / Confirmação
+  - Listar os pedidos
 
 ---
 
