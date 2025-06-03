@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class MonitorDTO {
     private String status;
-    private String senha = String.valueOf(Math.random() * 100);
+    private Long id;
 }
