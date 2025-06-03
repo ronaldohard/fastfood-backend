@@ -38,7 +38,7 @@ https://miro.com/app/board/uXjVIDhyBL0=/?share_link_id=759980337877
 
 ```bash
 # 1. Clone o projeto
-https://github.com/ronaldohard/fastfood-backend.git
+git clone https://github.com/ronaldohard/fastfood-backend.git
 
 # 2. Entre na pasta docker
 cd docker
